@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App "Meu Candidato Ideal"</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/docs.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/docs.min.js" type="text/javascript"></script>
+    <script src="js/base.js" type="text/javascript"></script>
+    <script src="js/dialog.js" type="text/javascript"></script>
+
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+          <div class="item active">
+              <div style="padding:25px;">
+                  <div class="text-center">
+                      <img src="img/logo_4Coders.png" width="300px" />
+                  </div>
+                  <br />
+              </div>
+          </div>
+          <div class="item">
+              <div style="padding:25px;">
+                  <div class="text-center">
+                      <img src="img/logo_4Coders.png" width="300px" />
+                  </div>
+                  <br />
+              </div>
+          </div>
+          <div class="item">
+              <div style="padding:25px;">
+                  <div class="text-center">
+                      <img src="img/logo_4Coders.png" width="300px" />
+                  </div>
+                  <br />
+              </div>
+          </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+    <div id="divLabel" style="background-color:#3ca2c4;text-align:center;padding: 1px 0 1px 0;">
+        <h3 style="color: #fff;">Selecione as opções abaixo, para ajudarmos você a encontrar o candidato ideal!</h3>
+    </div>
+    <div id="divCargosEstados" style="background-color:#027267;text-align:center;padding-top:1px;">
+        <div>
+            <select id="lstPartidos" class="form-control btn btn-danger btn-lg" style="height: 50px;">
+                
+            </select>
+        </div>
+        <div>
+            <h3 style="color: #fff;">Cargos</h3>
+            <div id="lstCargos" data-toggle="buttons">
+                
+            </div>
+        </div>
+        <div>
+            <h3 style="color: #fff;">Estados</h3>
+            <div id="lstEstados" data-toggle="buttons">
+               
+            </div>
+        </div>
+        <br />
+    </div>
+    <div id="divCaracteristicas"">
+        <div style="background-color:#3ca2c4;text-align:center;padding: 1px 0 1px 0;">
+            <h3 style="color: #fff;">Quais características, você valoriza para o seu candidato ideal?</h3>
+        </div>
+        <div class="container" style="text-align:center;">
+            <div class="col-xs-4">
+                <h4>Superior Completo? <br />
+                <div id="supCompleto" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-success btn-quiz">
+                        <input type="radio" name="optSupCompleto" value="S" />Sim</label>
+                    <label class="btn btn-danger btn-quiz">
+                        <input type="radio" name="optSupCompleto" value="N" />Não</label>
+                </div>
+                </h4>
+            </div>
+            <div class="col-xs-4">
+                <h4>Experiência Política? <br />
+                <div id="expPolitica" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-success btn-quiz">
+                        <input type="radio" name="optExpPolitica" value="S" />Sim</label>
+                    <label class="btn btn-danger btn-quiz">
+                        <input type="radio" name="optExpPolitica" value="N" />Não</label>
+                </div>
+                </h4>
+            </div>
+            <div class="col-xs-4">
+                <h4>Possui algum Processo? <br />
+                <div id="Processo" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-success btn-quiz">
+                        <input type="radio" name="optProcesso" value="S"/>Sim</label>
+                    <label class="btn btn-danger btn-quiz">
+                        <input type="radio" name="optProcesso" value="N" />Não</label>
+                </div>
+                </h4>
+            </div>
+        </div>
+        <div>
+            <button type="button" id="btnBuscar" class="btn btn-primary btn-lg col-xs-12" style="margin: 10px 0 10px 0;">Buscar Candidatos</button>
+        </div>
+    </div>
+    <div id="divCandidatos">
+        <table class="table table-hover table-striped table-curved" id="lstCandidatos">
+            <thead>
+                <tr>
+                    <th colspan="4">
+                    <button type="button" id="btnVoltar" class="btn btn-primary btn-lg col-xs-12">Voltar</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="col-xs-1"></th>
+                    <th>Nome</th>
+                    <th class="col-xs-2">Aderência</th>
+                    <th>Votaria?</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                <th colspan="4">
+                <button type="button" id="btnMais" class="btn btn-primary btn-lg col-xs-12">Ver mais candidatos</button>
+                </th>
+                </tr>
+            </tfoot>
+        </table>
+        <!-- Modal -->
+        <div class="modal fade" id="myModalCandidato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            
+        </div>
+    </div>
+    
+        <!-- Footer
+================================================== -->
+    <footer class="bs-docs-footer" role="contentinfo">
+        <div class="container">
+            <div class="bs-docs-social">
+                <ul class="bs-docs-social-buttons">
+                    <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+                    </li>
+                    <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+                    </li>
+                </ul>
+            </div>
+            <div>logo 1</div>
+            <div>logo 2</div>
+            <div>logo 3</div>
+            <ul class="bs-docs-footer-links muted">
+                <li>Versão v4.0.0</li>
+                <li>&middot;</li>
+                <li><a href="https://github.com/twbs/bootstrap">GitHub</a></li>
+                <li>&middot;</li>
+                <li><a href="../getting-started/#examples">Sobre o Projeto</a></li>
+                <li>&middot;</li>
+                <li><a href="../2.3.2/">Próximos Passos</a></li>
+                <li>&middot;</li>
+                <li><a href="../about/">Contato</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div id="modalLoading"></div>
+
+    <!-- Analytics
+    ================================================== -->
+
+</body>
+</html>
