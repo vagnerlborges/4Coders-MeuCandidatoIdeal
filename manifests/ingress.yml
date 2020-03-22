@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "qrwayclusterdev"
+    labels:
+        app: "qrwayclusterdev"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: qrwayclusterdev5db6-qrwayclusterdev.be53b62d712843558cb6.southcentralus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "qrwayclusterdev"
+                servicePort: 80
