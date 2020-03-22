@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "qrwayclusterdev"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "qrwayclusterdev"
+    spec:
+      containers:
+        - name: "qrwayclusterdev"
+          image: "qrway.azurecr.io/qrwayclusterdev"
+          ports:
+          - containerPort: 80
